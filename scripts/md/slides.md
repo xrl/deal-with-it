@@ -18,20 +18,14 @@ class: big
 
 ---
 
-title: Chef
+title: Chef-y Concepts
 class: big
 
-Things we'll cover:
+Things we'll cover
 
-- Chef-y Concepts
 - Single Cookbook Workflow
 - Dependency Management
 - Vagrant Deployments
-
----
-
-title: Been Around Since 2008
-class: It's been under active development, commercial support (if you care about that)
 
 ---
 
@@ -49,27 +43,23 @@ content_class: flexbox
 
 title: What is Chef not?
 
-A simple script runner
+It's not a *simple* script runner
 
 It's not a remote shell command runner with callbacks
 
 (I'm looking at you Capistrano)
 
-
----
-
-title: What is Chef?
-
-The kitchen sink for bringing up and managing servers
-
-Commercially supported by OpsCode
-
-
 ---
 
 title: Who Uses Chef?
 
-Travis CI, Facebook, Indiegogo, Cheezburger, Splunk, many others
+- Travis CI
+- Facebook
+- Indiegogo
+- Cheezburger
+- Splunk
+
+many others
 
 ---
 
@@ -79,7 +69,9 @@ title: Haterade
 
  Luke Kanies - Puppet Labs founder
 
-<footer class="source">http://www.wired.com/wiredenterprise/2013/02/facebook-chef/</footer>
+<footer class="source">
+  http://www.wired.com/wiredenterprise/2013/02/facebook-chef/
+</footer>
 
 ---
 
@@ -87,7 +79,10 @@ title: Haterade
 
 > It’s just Python. It makes it easier for people like me to contribute (Ruby is not necessarily that mainstream among ops) and also means minimal dependency on install (Python is shipped by default with Linux).
 
-http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html
+
+<footer class="source">
+  http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html
+</footer>
 
 ---
 
@@ -99,7 +94,7 @@ content_class: vcenter flexbox dark nobackground
 
 content_class: vcenter flexbox dark nobackground
 
-<span class="red" style="font-size: 60pt">Let's get work done<span>
+<span class="blue" style="font-size: 60pt">Let's get work done<span>
 
 ---
 
@@ -112,62 +107,114 @@ title: Killer Chef
  * share cookbooks with people
  * versioning
  * dependencies
- * chef's ruby is a good fit
+ * ruby is a good fit
 
 ---
 
-title: Chef: the organization
+title: How You'll Break Down Your Environment
 
-| node        | an individual server                   |
-| environment | share configuration between servers    |
-| role        | dedicate servers for web, db, whatever |
-| clients     | SSL cert for a specific box            |
-
----
-
-title: Chef: Software Components
-
-| name       | purpose|
-| cookbook   | a software library |
-| recipe     | a script to run in the Chef environment |
-| attributes | customization for cookbooks |
-| resource   | a struct describing an object on your server |
-| provider   | a subroutine which takes resources as params |
-| definition | a combination of resources/providers |
-| lwrp       | uhhhhh |
-| templates  | erubis config files |
-| files      | static files you don't change |
-
----
-
-title: Whew
-content_class: flexbox vcenter
+<table>
+  <tr>
+    <td>node</td>
+    <td>an individual server</td>
+  </tr>
+  <tr>
+    <td>environment</td>
+    <td>usually locks cookbook verions</td>
+  </tr>
+  <tr>
+    <td>role</td>
+    <td>dedicate servers for web, db, whatever</td>
+  </tr>
+  <tr>
+    <td>clients</td>
+    <td>SSL cert for a specific box</td>
+  </tr>
+</table>
 
 ---
 
 title: Chef: Software Components
-subtitle: Cookbook
 
-Services: nginx, postgresql, redis, ...
-
-Runtimes: rvm, java, python, ...
-
-Utilities: git, build-essential, ...
-
-Find cookbooks on http://community.opscode.com/ or search across github (that's what I do)
+<table>
+  <tr>
+    <td>cookbook</td>
+    <td>a software library</td>
+  </tr>
+  <tr>
+    <td>recipe</td>
+    <td>a script to run in the Chef environment</td>
+  </tr>
+  <tr>
+    <td>attributes</td>
+    <td>customization for cookbooks</td>
+  </tr>
+  <tr>
+    <td>resource</td>
+    <td>a struct describing an object on your server</td>
+  </tr>
+  <tr>
+    <td>provider</td>
+    <td>a subroutine which takes resources as params</td>
+  </tr>
+  <tr>
+    <td>definition</td>
+    <td>a combination of resources/providers</td>
+  </tr>
+  <tr>
+    <td>templates</td>
+    <td>erubis config files</td>
+  </tr>
+  <tr>
+    <td>files</td>
+    <td>static files you don't change</td>
+  </tr>
+</table>
 
 ---
 
 title: Chef: Software Components
-subtitle: Recipe
+subtitle: Cookbooks: Example
 
-What recipes does nginx give you?
+Services: *nginx*, *postgresql*, *redis*, ...
 
-| nginx::default         | where chef starts           |
-| nginx::passenger       | the rack application loader |
-| nginx::repo            |                             |
-| nginx::source          |                             |
-| *lots of others*       |                             |
+Runtimes: *rvm*, *java*, *python*, ...
+
+Utilities: *git*, *build-essential*, ...
+
+more on the [opscode community site](http://community.opscode.com/)
+
+or search across [github](https://www.github.com) (that's what I do)
+
+---
+
+title: Chef: Software Components
+subtitle: Cookbooks: What does <em>nginx</em> give you?
+
+<table>
+  <tr>
+    <td>nginx::default</td>
+    <td>where chef starts</td>
+  </tr>
+  <tr>
+    <td>nginx::passenger</td>
+    <td>the rack application server</td>
+  </tr>
+  <tr>
+    <td>nginx::repo</td>
+    <td>if you want it fast</td>
+  </tr>
+  <tr>
+    <td>nginx::source</td>
+    <td>if you want to warm up a CPU</td>
+  </tr>
+</table>
+
+---
+
+content_class: vcenter flexbox
+
+<span class="red" style="font-size: 60pt">Whew</span>
 
 ---
 
@@ -176,26 +223,88 @@ subtitle: Attributes
 
 A robust inheritence scheme. Chef has its own rules for determining attributes at runtime
 
-| default | lowest |
-| force_default | beats default |
-| normal | saved by the node |
-| override | 
-
-
+<table>
+  <tr>
+    <td>default</td>
+    <td>lowest, what you usually see in attribute files</td>
+  </tr>
+  <tr>
+    <td>force_default</td>
+    <td>useful when wrapping cookbooks</td>
+  </tr>
+  <tr>
+    <td>normal</td>
+    <td>the node's config</td>
+  </tr>
+  <tr>
+    <td>override</td>
+    <td>used sparingly in recipe files</td>
+  </tr>
+  <tr>
+    <td>force_override</td>
+    <td>used to override attributes from role or env</td>
+  </tr>
+  <tr>
+    <td>automatic</td>
+    <td>gathered by ohai, read-only</td>
+  </tr>
+</table>
 
 ---
 
-title: Chef the Framework
+title: Framework Conventions
 
-It gives you a directory structure
-
-*STRUCTURE GOES HERE*
+- Common Folder Structure
+- Big Standard Library
+- Configuration in Attributes
+- Actions Invoked in Recipes
 
 ---
 
-title: How is it a framework?
+title: Standard Lib
+subtitle: Consistent Cross-Platform Resources
 
-It introduces 
+<table>
+  <tr>
+    <th>Resource Name</th>
+    <th>Purpose</th>
+  </tr>
+  <tr>
+    <td>directory</td>
+    <td>template</td>
+    <td>symlink</td>
+  </tr>
+</table>
+
+<footer class="source">http://docs.opscode.com/resource.html#chef-resources</footer>
+
+---
+
+content_class: notitle
+
+<pre class="prettyprint" data-lang="bash">
+xavierlange ~/code/sdruby-prism$ tree .
+.
+├── Berksfile
+├── Gemfile
+├── LICENSE
+├── README.md
+├── Thorfile
+├── Vagrantfile
+├── attributes
+├── chefignore
+├── definitions
+├── files
+│   └── default
+├── libraries
+├── metadata.rb
+├── providers
+├── recipes
+│   └── default.rb
+├── resources
+└── templates
+    └── default
+</pre>
 
 ---
 
