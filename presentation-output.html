@@ -1,0 +1,399 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/app.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<!-- <slide class="logoslide nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo.png"></span>
+  </article>
+</slide>
+ -->
+<slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="images/ruby_logo_128.png"></aside>
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-presenter><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Reality of Servers</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>There are a lot of servers</li>
+<li>They probably have a lot in common</li>
+<li>They probably have a few things that are not in common</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Every Server Is Disposable</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Put those servers in place</li>
+<li>Make sure they're configured the right way</li>
+<li>Use tools to print servers</li>
+<li>Don't cry when they disappear</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Chef</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Things we'll cover:</p>
+<ul>
+<li>Chef-y Concepts</li>
+<li>Single Cookbook Workflow</li>
+<li>Dependency Management</li>
+<li>Vagrant Deployments</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="It's been under active development, commercial support (if you care about that)" >
+  
+    <hgroup>
+      <h2>Been Around Since 2008</h2>
+      <h3></h3>
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>What is Chef?</h2>
+      <h3></h3>
+    </hgroup>
+    <article class="flexbox"><div style="width: 100%">
+  <div class="pillar black gray-bg">framework</div>
+  <div class="pillar black yellow2-bg">cli tools</div>
+  <div class="pillar black red2-bg">community</div>
+  <div class="pillar black green-bg">workflow</div>
+</div></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>What is Chef not?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>A simple script runner</p>
+<p>It's not a remote shell command runner with callbacks</p>
+<p>(I'm looking at you Capistrano)</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>What is Chef?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>The kitchen sink for bringing up and managing servers</p>
+<p>Commercially supported by OpsCode</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Who Uses Chef?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Travis CI, Facebook, Indiegogo, Cheezburger, Splunk, many others</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Haterade</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><blockquote>
+<p>“It’s impressive that Opscode has gotten to this scale,” he says, “but we’ve been at this scale for the last three or four years.”</p>
+</blockquote>
+<p>Luke Kanies - Puppet Labs founder</p>
+<footer class="source">http://www.wired.com/wiredenterprise/2013/02/facebook-chef/</footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Haterade</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><blockquote>
+<p>It’s just Python. It makes it easier for people like me to contribute (Ruby is not necessarily that mainstream among ops) and also means minimal dependency on install (Python is shipped by default with Linux).</p>
+</blockquote>
+<p>http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2></h2>
+      <h3></h3>
+    </hgroup>
+    <article class="vcenter flexbox dark nobackground"><p><span class="red" style="font-size: 60pt">LOL</span></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2></h2>
+      <h3></h3>
+    </hgroup>
+    <article class="vcenter flexbox dark nobackground"><p><span class="red" style="font-size: 60pt">Let's get work done<span></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Killer Chef</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>cross-platform functionality</li>
+<li>everything in the right place</li>
+<li>base functionality is rocket fuel</li>
+<li>official cookbooks are nice</li>
+<li>share cookbooks with people</li>
+<li>versioning</li>
+<li>dependencies</li>
+<li>chef's ruby is a good fit</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef: the organization</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>| node        | an individual server                   |
+| environment | share configuration between servers    |
+| role        | dedicate servers for web, db, whatever |
+| clients     | SSL cert for a specific box            |</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef: Software Components</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>| name       | purpose|
+| cookbook   | a software library |
+| recipe     | a script to run in the Chef environment |
+| attributes | customization for cookbooks |
+| resource   | a struct describing an object on your server |
+| provider   | a subroutine which takes resources as params |
+| definition | a combination of resources/providers |
+| lwrp       | uhhhhh |
+| templates  | erubis config files |
+| files      | static files you don't change |</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Whew</h2>
+      <h3></h3>
+    </hgroup>
+    <article class="flexbox vcenter"></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef: Software Components</h2>
+      <h3>Cookbook</h3>
+    </hgroup>
+    <article ><p>Services: nginx, postgresql, redis, ...</p>
+<p>Runtimes: rvm, java, python, ...</p>
+<p>Utilities: git, build-essential, ...</p>
+<p>Find cookbooks on http://community.opscode.com/ or search across github (that's what I do)</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef: Software Components</h2>
+      <h3>Recipe</h3>
+    </hgroup>
+    <article ><p>What recipes does nginx give you?</p>
+<p>| nginx::default         | where chef starts           |
+| nginx::passenger       | the rack application loader |
+| nginx::repo            |                             |
+| nginx::source          |                             |
+| <em>lots of others</em>       |                             |</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef: Software Components</h2>
+      <h3>Attributes</h3>
+    </hgroup>
+    <article ><p>A robust inheritence scheme. Chef has its own rules for determining attributes at runtime</p>
+<p>| default | lowest |
+| force_default | beats default |
+| normal | saved by the node |
+| override | </p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chef the Framework</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>It gives you a directory structure</p>
+<p><em>STRUCTURE GOES HERE</em></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>How is it a framework?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>It introduces </p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Code Example</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Media Queries are sweet:</p>
+<pre class="prettyprint" data-lang="css">
+@media screen and (max-width: 640px) {
+  #sidebar { display: none; }
+}
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Once more, with JavaScript</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="ruby">
+def is_it_ruby?(*args)
+  return true
+end
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Centered content</h2>
+      <h3></h3>
+    </hgroup>
+    <article class="flexbox vcenter"><p>This content should be centered!</p></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="images/ruby_logo_128.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&lt;Thank You!&gt;</h2>
+    <p>xrlange@gmail.com ; tureus ; github: xrl</p>
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide> -->
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
