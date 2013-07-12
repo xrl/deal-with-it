@@ -1,9 +1,22 @@
+em {
+  font-style: italic;
+  font-weight: bolder;
+}
+
+slides > slide > hgroup + article {
+  margin-top: 0px;
+}
+
 .pillar {
   float: left;
   width: 25%;
   padding-top: 200px;
   padding-bottom: 200px;
   text-align: center;
+}
+
+blockquote {
+  line-height: 50px;
 }
 
 .blue-bg {
