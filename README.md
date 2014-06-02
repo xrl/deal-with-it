@@ -76,16 +76,14 @@ However, our recommendation is to use Compass. It's super easy to install and us
 
 ### Installing Compass and making changes
 
-First, install compass:
+First, install ruby dependencies:
 
-    sudo gem update --system
-    sudo gem install compass
+    bundle
 
 Next, you'll want to watch for changes to the exiting .scss files in [`/theme/scss`](theme/scss)
 and any new one you add:
 
-    $ cd io-2012-slides
-    $ compass watch
+    $ foreman start
 
 This command automatically recompiles the .scss file when you make a change.
 Its corresponding .css file is output to [`/theme/css`](theme/css). Slick.
@@ -97,6 +95,19 @@ run watch with the style output flag:
     compass watch -s expanded
 
 *Note:* You should not need to edit [`_base.scss`](theme/scss/_base.scss).
+
+## Compiling the slides
+
+You will find the content of the slides in `scripts/md/slides.md`. To compile those slides.md in to `presentation-output.html` you must first setup:
+
+    $ cd scripts/md
+    $ virtualenv env
+    $ . ./env/bin/activate
+    $ pip install -r dependencies.txt
+
+Then each time you want to render the slides:
+
+    $ python render.py
 
 ## Running the slides
 
