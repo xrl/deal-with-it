@@ -1,31 +1,90 @@
 
-title: Reality of Servers
+title: Deal With It
 class: big
 
-- There are a lot of servers
-- They probably have a lot in common
-- They probably have a few things that are not in common
+<h1>Memeing your screen since '05</h1>
 
 ---
 
-title: Every Server Is Disposable
+title: Characterizing 
 class: big
 
-- Put those servers in place
-- Make sure they're configured the right way
-- Don't cry when they disappear
-- Print servers
+- Conflict
+- Acceptance
 
 ---
 
-title: Chef-y Concepts
+title: Exhibit A
+subtitle: Something with tines
+
+<p style="text-align: center">
+  <img src="/images/dwi/cactus.gif"/>
+</p>
+
+---
+
+title: Exhibit B
+subtitle: Spoiler Alert
+
+<p style="text-align: center">
+  <img src="/images/dwi/data-vs-borg.gif" width="80%" style="margin: auto"/>
+</p>
+
+---
+
+title: Exhibit C
+subtitle: Spoiler Alert (II)
+
+<p style="text-align: center">
+  <img src="/images/dwi/godzilla.gif" width="80%" style="margin: auto"/>
+</p>
+
+---
+
+title: Exhibit D
+subtitle: Internet is for Cats
+
+<p style="text-align: center">
+  <img src="/images/dwi/cat-skateboard.gif" width="80%" style="margin: auto"/>
+</p>
+
+---
+
+title: Graphics Interchange Format
 class: big
 
-Things we'll cover
+- Animation
+- Lossless Compression (shapes)
+- 256 colors per frame
+- Pronunciation: Choosy developers choose GIF
 
-- Single Cookbook Workflow
-- Dependency Management
-- Vagrant Deployments
+---
+
+title: Deal With It
+class: big
+
+- Drawing
+- Animating
+- Exporting
+
+---
+
+title: What are we dealing with?
+class: big
+
+- JavaScript
+- Standalone
+- Animation
+- Export
+
+---
+
+title: How are we dealing with it?
+class: big
+
+- Simple data structure
+- Editor
+- Viewer
 
 ---
 
