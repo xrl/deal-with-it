@@ -1,0 +1,5 @@
+Demo version: http://emberjs.jsbin.com/gujon/73/edit
+
+Just drawing a line: http://emberjs.jsbin.com/gohix/4/edit
+Drawing sunglasses (with trails): http://emberjs.jsbin.com/cayix/1/edit
+Animation playback: http://emberjs.jsbin.com/guhit/3/edit

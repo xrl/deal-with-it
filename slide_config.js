@@ -1,8 +1,8 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Modern Cuisine',
-    subtitle: "Intro and Workflow",
+    title: 'Deal With It',
+    subtitle: "Animating in JS",
     //eventInfo: {
     //  title: 'Google I/O',
     //  date: '6/x/2013'
@@ -23,9 +23,9 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Xavier Lange',
-    company: 'Hacker<br>TUREUS, Assay Depot',
+    company: 'Thought Leader @ Fanpics, TUREUS',
     twitter: '@tureus',
-    www: 'http://xrl.tureus.com',
+    www: 'http://xrl.github.io',
     github: 'http://github.com/xrl'
   }/*, {
     name: 'Second Name',

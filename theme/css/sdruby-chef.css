@@ -9,10 +9,12 @@ slides > slide > hgroup + article {
 
 .pillar {
   float: left;
-  width: 25%;
+  width: 45%;
+  height: 50%;
   padding-top: 200px;
   padding-bottom: 200px;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
 }
 
 blockquote {

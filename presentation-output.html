@@ -34,7 +34,7 @@ URL: https://code.google.com/p/io-2012-slides
 </slide>
  -->
 <slide class="title-slide segue nobackground">
-  <aside class="gdbar"><img src="images/ruby_logo_128.png"></aside>
+  <aside class="gdbar"><img src="images/html5_canvas_logo_by_netgoblin154-d54alet.png"></aside>
   <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
   <hgroup class="auto-fadein">
     <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -47,633 +47,13 @@ URL: https://code.google.com/p/io-2012-slides
 <slide class="big" >
   
     <hgroup>
-      <h2>Reality of Servers</h2>
+      <h2>Deal With It</h2>
       <h3></h3>
     </hgroup>
-    <article ><ul>
-<li>There are a lot of servers</li>
-<li>They probably have a lot in common</li>
-<li>They probably have a few things that are not in common</li>
-</ul></article>
- 
-</slide>
+    <article ><h1>Memeing your screen since 2005</h1>
 
-<slide class="big" >
-  
-    <hgroup>
-      <h2>Every Server Is Disposable</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>Put those servers in place</li>
-<li>Make sure they're configured the right way</li>
-<li>Don't cry when they disappear</li>
-<li>Print servers</li>
-</ul></article>
- 
-</slide>
-
-<slide class="big" >
-  
-    <hgroup>
-      <h2>Chef-y Concepts</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><p>Things we'll cover</p>
-<ul>
-<li>Single Cookbook Workflow</li>
-<li>Dependency Management</li>
-<li>Vagrant Deployments</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>What is Chef?</h2>
-      <h3></h3>
-    </hgroup>
-    <article class="flexbox"><div style="width: 100%">
-  <div class="pillar black gray-bg">framework</div>
-  <div class="pillar black yellow2-bg">cli tools</div>
-  <div class="pillar black red2-bg">community</div>
-  <div class="pillar black green-bg">workflow</div>
-</div></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>What is Chef not?</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><p>It's not a <em>simple</em> script runner</p>
-<p>It's not a remote shell command runner with callbacks</p>
-<p>(I'm looking at you Capistrano)</p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Who Uses Chef?</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>Travis CI</li>
-<li>Facebook</li>
-<li>Indiegogo</li>
-<li>Cheezburger</li>
-<li>Splunk</li>
-</ul>
-<p>many others</p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Haterade</h2>
-      <h3></h3>
-    </hgroup>
-    <article class="vcenter flexbox dark nobackground"><blockquote>
-<p>“It’s impressive that Opscode has gotten to this scale,” he says, “but we’ve been at this scale for the last three or four years.”</p>
-<p>Luke Kanies - Puppet Labs founder</p>
-</blockquote>
-<footer class="source">
-  http://www.wired.com/wiredenterprise/2013/02/facebook-chef/
-</footer></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Haterade</h2>
-      <h3></h3>
-    </hgroup>
-    <article class="vcenter flexbox dark nobackground"><blockquote>
-<p>“It’s just Python. It makes it easier for people like me to contribute (<em>Ruby is not necessarily that mainstream among ops</em>) and also means minimal dependency on install (<em>Python is shipped by default with Linux</em>).“</p>
-<p>Vincent Viallet - devo.ps</p>
-</blockquote>
-<footer class="source">
-  http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html
-</footer></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article class="vcenter flexbox dark nobackground"><p><span class="red" style="font-size: 60pt">LOL</span></p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article class="vcenter flexbox dark nobackground"><p><span class="blue" style="font-size: 60pt">Let's get work done<span></p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Killer Chef</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>cross-platform functionality</li>
-<li>everything in the right place</li>
-<li>base functionality is rocket fuel</li>
-<li>official cookbooks are nice</li>
-<li>share cookbooks with people</li>
-<li>versioning</li>
-<li>dependencies</li>
-<li>bootstraps itself (omnibus)</li>
-<li>ruby is a good fit</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>How You'll Break Down Your Environment</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><table>
-  <tr>
-    <td>node</td>
-    <td>an individual server</td>
-  </tr>
-  <tr>
-    <td>role</td>
-    <td>dedicate servers for web, db, whatever</td>
-  </tr>
-  <tr>
-    <td>environment</td>
-    <td>usually locks cookbook verions</td>
-  </tr>
-  <tr>
-    <td>clients</td>
-    <td>SSL cert for a specific box</td>
-  </tr>
-</table></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><table>
-  <tr>
-    <td>cookbook</td>
-    <td>a software library</td>
-  </tr>
-  <tr>
-    <td>recipe</td>
-    <td>a script to run in the Chef environment</td>
-  </tr>
-  <tr>
-    <td>attributes</td>
-    <td>customization for cookbooks</td>
-  </tr>
-  <tr>
-    <td>resource</td>
-    <td>a struct describing an object on your server</td>
-  </tr>
-  <tr>
-    <td>provider</td>
-    <td>a subroutine which takes resources as params</td>
-  </tr>
-  <tr>
-    <td>definition</td>
-    <td>a combination of resources/providers</td>
-  </tr>
-  <tr>
-    <td>templates</td>
-    <td>erubis config files</td>
-  </tr>
-  <tr>
-    <td>files</td>
-    <td>static files you don't change</td>
-  </tr>
-</table></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3>Cookbooks: Example</h3>
-    </hgroup>
-    <article ><p>Services: <em>nginx</em>, <em>postgresql</em>, <em>redis</em>, ...</p>
-<p>Runtimes: <em>rvm</em>, <em>java</em>, <em>python</em>, ...</p>
-<p>Utilities: <em>git</em>, <em>application</em>, <em>build-essential</em>, ...</p>
-<p>more on the <a href="http://community.opscode.com/">opscode community site</a></p>
-<p>or search across <a href="https://www.github.com">github</a> (that's what I do)</p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3>Cookbooks: What does <em>nginx</em> give you?</h3>
-    </hgroup>
-    <article ><table>
-  <tr>
-    <td>nginx::default</td>
-    <td>where chef starts</td>
-  </tr>
-  <tr>
-    <td>nginx::passenger</td>
-    <td>the rack application server</td>
-  </tr>
-  <tr>
-    <td>nginx::repo</td>
-    <td>if you want it fast</td>
-  </tr>
-  <tr>
-    <td>nginx::source</td>
-    <td>if you want to build it from source</td>
-  </tr>
-</table></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3>Cookbooks: What attributes does <em>nginx</em> use? (I)</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-# nginx/attributes/default.rb
-
-default['nginx']['version'] = "1.2.6"
-default['nginx']['package_name'] = "nginx"
-default['nginx']['dir'] = "/etc/nginx"
-default['nginx']['log_dir'] = "/var/log/nginx"
-default['nginx']['binary'] = "/usr/sbin/nginx"
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3>Cookbooks: What attributes does <em>nginx</em> use? (II)</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-# nginx/attributes/default.rb
-
-case node['platform']
-when "debian","ubuntu"
-  default['nginx']['user']       = "www-data"
-  default['nginx']['init_style'] = "runit"
-when "redhat","centos","scientific","amazon","oracle","fedora"
-  default['nginx']['user']       = "nginx"
-  default['nginx']['init_style'] = "init"
-  default['nginx']['repo_source'] = "epel"
-else
-  default['nginx']['user']       = "www-data"
-  default['nginx']['init_style'] = "init"
-end
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3>Cookbooks: What attributes does <em>nginx</em> use? (II)</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-# nginx/attributes/default.rb
-
-default['nginx']['keepalive']          = "on"
-default['nginx']['keepalive_timeout']  = 65
-default['nginx']['worker_processes']   = node['cpu'] && node['cpu']['total'] ? \
-      node['cpu']['total'] : 1
-default['nginx']['worker_connections'] = 1024
-default['nginx']['worker_rlimit_nofile'] = nil
-default['nginx']['multi_accept']       = false
-default['nginx']['event']              = nil
-default['nginx']['server_names_hash_bucket_size'] = 64
-default['nginx']['sendfile'] = 'on'
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef: Software Components</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><p>Rules for determining attributes at runtime</p>
-<table>
-  <tr>
-    <td>default</td>
-    <td>lowest, what you usually see in attribute files</td>
-  </tr>
-  <tr>
-    <td>force_default</td>
-    <td>useful when wrapping cookbooks</td>
-  </tr>
-  <tr>
-    <td>normal</td>
-    <td>the node's config</td>
-  </tr>
-  <tr>
-    <td>override</td>
-    <td>used sparingly in recipe files</td>
-  </tr>
-  <tr>
-    <td>force_override</td>
-    <td>used to override attributes from role or env</td>
-  </tr>
-  <tr>
-    <td>automatic</td>
-    <td>gathered by ohai, read-only</td>
-  </tr>
-</table></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Framework Conventions</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>Common Folder Structure</li>
-<li>Big Standard Library</li>
-<li>Configuration in Attributes</li>
-<li>Actions Invoked in Recipes</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article class="notitle"><pre class="prettyprint" data-lang="bash">
-xavierlange ~/code/sdruby-prism$ tree .
-.
-├── Berksfile
-├── Gemfile
-├── LICENSE
-├── README.md
-├── Thorfile
-├── Vagrantfile
-├── attributes
-├── chefignore
-├── definitions
-├── files
-│   └── default
-├── libraries
-├── metadata.rb
-├── providers
-├── recipes
-│   └── default.rb
-├── resources
-└── templates
-    └── default
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Standard Lib</h2>
-      <h3>Consistent Cross-Platform Resources</h3>
-    </hgroup>
-    <article ><table>
-  <tr>
-    <th>Resource Name</th>
-    <th>Purpose</th>
-  </tr>
-  <tr>
-    <td>directory</td>
-    <td>Create directories and manage ownership/permissions</td>
-  </tr>
-  <tr>
-    <td>remote_file</td>
-    <td>Fetch a file using http</td>
-  </tr>
-  <tr>
-    <td>template</td>
-    <td>evaluate an erubis template and put it somewhere</td>
-  </tr>
-  <tr>
-    <td>link</td>
-    <td>Symlink files, pretty strict about it too</td>
-  </tr>
-  <tr>
-    <td>package</td>
-    <td>Use native tools to install a precompiled package</td>
-  </tr>
-</table>
-
-<footer class="source">http://docs.opscode.com/resource.html#chef-resources</footer></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>apt_package</li>
-<li>bash</li>
-<li>breakpoint</li>
-<li>chef_gem</li>
-<li>cookbook_file</li>
-<li>cron</li>
-<li>csh</li>
-<li>deploy</li>
-<li>directory</li>
-<li>dpkg_package</li>
-<li>easy_install_package</li>
-<li>env</li>
-<li>erl_call</li>
-<li>execute</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>file</li>
-<li>freebsd_package</li>
-<li>gem_package</li>
-<li>git</li>
-<li>group</li>
-<li>http_request</li>
-<li>ifconfig</li>
-<li>ips_package</li>
-<li>link</li>
-<li>log</li>
-<li>macports_package</li>
-<li>mdadm</li>
-<li>mount</li>
-<li>ohai</li>
-<li>package</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>pacman_package</li>
-<li>perl</li>
-<li>portage_package</li>
-<li>powershell_script</li>
-<li>python</li>
-<li>registry_key</li>
-<li>remote_directory</li>
-<li>remote_file</li>
-<li>route</li>
-<li>rpm_package</li>
-<li>ruby</li>
-<li>ruby_block</li>
-<li>scm</li>
-<li>script</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2></h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>service</li>
-<li>smartos_package</li>
-<li>solaris_package</li>
-<li>subversion</li>
-<li>template</li>
-<li>user</li>
-<li>yum_package</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Code Example</h2>
-      <h3>How to create a directory</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-directory "/put/a/dir/here" do
-  owner "xavier"
-  group "rubyist"
-  mode 00777
-
-  recursive true
-  action :create
-end
-</pre>
-
-<p>Works on OS X, Linux, Windows, Solaris, etc.</p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Code Example</h2>
-      <h3>How to remove a directory</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-directory "/dont/want/it" do
-  action :delete
-end
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Code Example</h2>
-      <h3>How to download a remote file</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-remote_file  "/usr/local/src" do
-  source   'ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz'
-  checksum 'a893cff26bcf351b8975ebf2a63b1023'
-end
-</pre>
-
-<p>Does the right thing if the local file exists</p></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Full-Blown Example</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><ul>
-<li>Berkshelf</li>
-<li>Ruby on Rails 4.0 app</li>
-<li>git</li>
-<li>unicorn</li>
-<li>runit</li>
-<li>PostgreSQL</li>
-<li>nginx</li>
-<li>vagrant local deploy</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Berkshelf</h2>
-      <h3>Bundler for Chef Cookbooks</h3>
-    </hgroup>
-    <article ><p style="text-align: center">
-  <img src="/images/gersberms.jpg" height="520"/>
+<p style="text-align: center">
+  <img src="/images/dwi/Deal_with_it_dog_gif.gif"/>
 </p></article>
  
 </slide>
@@ -681,382 +61,27 @@ end
 <slide  >
   
     <hgroup>
-      <h2>Initializing the Project</h2>
+      <h2>Elements of a 'Deal With It'</h2>
       <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-gem install berkshelf --no-rdoc --no-ri
-
-berks cookbook sdruby-prism
-</pre>
-
-<p>You can follow along</p>
-<ul>
-<li>https://github.com/xrl/sdruby-chef</li>
-<li>https://github.com/xrl/sdruby-app</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Folder structure</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-xavierlange ~/code/sdruby-prism$ tree . -I vendor
-.
-├── Berksfile
-├── Berksfile.lock
-├── Gemfile
-├── Gemfile.lock
-├── LICENSE
-├── README
-├── README.md
-├── Thorfile
-├── Vagrantfile
-├── attributes
-│   └── default.rb
-├── chefignore
-├── definitions
-├── files
-│   └── default
-│       └── ruby
-│           └── gemrc
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Folder structure</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-xavierlange ~/code/sdruby-prism$ tree . -I vendor
-.
-├── libraries
-├── metadata.rb
-├── providers
-├── recipes
-│   ├── database.rb
-│   ├── default.rb
-│   ├── deploy.rb
-│   └── ruby.rb
-├── resources
-└── templates
-    └── default
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>metadata.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-name             'sdruby-prism'
-maintainer       'Xavier Lange'
-maintainer_email 'xrlange@gmail.com'
-license          'All rights reserved'
-description      'Installs/Configures sdruby-prism'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.0'
-
-depends "git"
-depends "application"
-depends "application_nginx"
-depends "application_ruby"
-depends "postgresql"
-depends "database"
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Berksfile</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-site :opscode
-
-metadata
-
-cookbook "application_nginx", path: '../application_nginx'
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>recipes/default.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-#
-# Cookbook Name:: sdruby-prism
-# Recipe:: default
-#
-# Copyright (C) 2013 Xavier Lange
-# 
-# All rights reserved - Do Not Redistribute
-#
-
-include_recipe "sdruby-prism::ruby"
-
-include_recipe "sdruby-prism::database"
-include_recipe "sdruby-prism::deploy"
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>recipes/ruby.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-apt_repository "brightbox-ruby-ng-experimental" do
-  action       :add
-  uri          "http://ppa.launchpad.net/brightbox/ruby-ng-experimental/ubuntu"
-  distribution node['lsb']['codename']
-  components   ["main"]
-  keyserver    "keyserver.ubuntu.com"
-  key          "C3173AA6"
-end
-
-apt_package "ruby1.9.1"
-apt_package "ruby1.9.1-dev"
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>attributes/default.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-force_default[:build_essential][:compiletime]     = true
-
-force_default[:postgresql][:password][:postgres]  = 'supersecret'
-
-force_default[:prism][:database][:name]     = 'sdruby-prism'
-force_default[:prism][:database][:username] = 'sdruby'
-force_default[:prism][:database][:password] = 'chef'
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>recipes/database.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-include_recipe "postgresql"
-include_recipe "postgresql::server"
-include_recipe "postgresql::ruby"
-include_recipe "database"
-
-conn = {:host => "127.0.0.1",
-        :port => 5432,
-        :username => 'postgres',
-        :password => node['postgresql']['password']['postgres']}
-
-postgresql_database_user node[:prism][:database][:username] do
-  connection conn
-  password node[:prism][:database][:password]
-  action :create
-end
-
-postgresql_database node[:prism][:database][:name] do
-  connection conn
-  owner node[:prism][:database][:username]
-  action :create
-end
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>recipes/deploy.rb</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-include_recipe "application"
-include_recipe "git"
-include_recipe "runit"
-
-application "prism" do
-  path "/home/ubuntu/app"
-  repository "https://github.com/xrl/sdruby-app.git"
-
-  owner "ubuntu"
-  group "ubuntu"
-
-  # snip
-
-  nginx_load_balancer do
-    application_port 3000
-    static_files ({"/assets" => "public/assets"})
-    hosts [node]
-  end
-
-end
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Some Ruby-Specific Declarations</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="ruby">
-  rails do
-    db_name = node[:prism][:database][:name]
-    db_user = node[:prism][:database][:username]
-    db_pwd  = node[:prism][:database][:password]
-
-    database do
-      adapter  'postgresql'
-      host     'localhost'
-      database db_name
-      username db_user
-      password db_pwd
-    end
-
-  end
-
-  unicorn do
-    port "3000"
-  end
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Now Bring It To Life (locally)</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-  cd ~/code/sdruby-prism
-  vagrant up
-
-  open http://33.33.33.10/
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Chef Flavors</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><p>You have to choose between</p>
-<ul>
-<li>Chef-Solo</li>
-<li>Hosted Chef</li>
-<li>Opscode Chef</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Deploying: Knife</h2>
-      <h3>Perform Chef Operations on Remote Servers</h3>
-    </hgroup>
-    <article ><p>Chef comes with Knife to help you</p>
-<ul>
-<li>Upload cookbooks</li>
-<li>Bootstrap servers</li>
-<li>Interact with cloud services</li>
-</ul></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>AWS/EC2</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-  cd ~/code/sdruby-prism
-  gem install knife-ec2
-
-  knife ec2 flavor list -A $AWS_ACCESS_KEY
-  ID           Name          Architecture RAM     Disk     Cores
-  c1.medium    High-CPU Med  32-bit       1740.8  350 GB   5
-  c1.xlarge    High-CPU Ext  64-bit       7168    1690 GB  20
-  cc1.4xlarge  Cluster Comp  64-bit       23552   1690 GB  33.5
-  cc2.8xlarge  Cluster Comp  64-bit       61952   3370 GB  88
-  cg1.4xlarge  Cluster GPU   64-bit       22528   1690 GB  33.5
-  hi1.4xlarge  High I/O Qua  64-bit       61952   2048 GB  35
-  m1.large     Large Instan  64-bit       7680    850 GB   4
-  m1.medium    Medium Insta  32-bit       3750    400 GB   2
-  m1.small     Small Instan  32-bit       1740.8  160 GB   1
-  m1.xlarge    Extra Large   64-bit       15360   1690 GB  8
-  m2.2xlarge   High Memory   64-bit       35020.8 850 GB   13
-  m2.4xlarge   High Memory   64-bit       70041.6 1690 GB  26
-  m2.xlarge    High-Memory   64-bit       17510.4 420 GB   6.5
-  t1.micro     Micro Instan  0-bit        613     0 GB     2
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>Prepare Hosted Chef</h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-  # make sure the environment exists on the chef server
-  knife environment from file roles/production.json
-
-  # put main cookbook (and dependencies) on chef server
-  berks upload sdruby-prism
-
-  # lock versions on the chef server
-  berks apply production
-</pre></article>
- 
-</slide>
-
-<slide  >
-  
-    <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>Find an AWS image</h3>
     </hgroup>
     <article ><ul>
-<li>http://cloud-images.ubuntu.com/</li>
-<li>choose an EC2 region/availability zone</li>
-<li>choose a distribution</li>
-<li>choose an architecture</li>
-<li>choose ebs-enabled yay/nay</li>
-<li>create a security group</li>
-<li>create an ssh key</li>
+<li>Conflict and/or Attitude</li>
+<li>Sunglasses</li>
+<li>"Deal With It"</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2><em>Technical</em> Elements of a 'Deal With It'</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Static or animated base image</li>
+<li>Static or animated sunglasses</li>
+<li>Static or animated text</li>
 </ul></article>
  
 </slide>
@@ -1064,39 +89,209 @@ end
 <slide  >
   
     <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>Create EC2 instance</h3>
+      <h2>Exhibit A</h2>
+      <h3>Something with tines</h3>
     </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-bundle exec knife ec2 server create \
-  --node-name=prism                        \
-  --environment=production                 \
-  --flavor=m1.large                        \
-  --image=ami-72072e37                     \
-  --identity-file=~/.ssh/sdruby-key        \
-  --groups sdruby-prism                    \
-  --ssh-key=sdruby-prism                   \
-  --ssh-user=ubuntu                        \
-  --json-attributes-file nodes/prism.json  \
-  --run-list=sdruby-prism
-</pre></article>
+    <article ><p style="text-align: center">
+  <img src="/images/dwi/cactus.gif"/>
+</p></article>
  
 </slide>
 
 <slide  >
   
     <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>Node Seed File</h3>
+      <h2>Exhibit B</h2>
+      <h3>Spoiler Alert</h3>
     </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-{
-  "name": "prism",
-  "chef_environment": "production",
-  "normal": {
+    <article ><p style="text-align: center">
+  <img src="/images/dwi/data-vs-borg.gif" width="80%" style="margin: auto"/>
+</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exhibit C</h2>
+      <h3>Spoiler Alert (II)</h3>
+    </hgroup>
+    <article ><p style="text-align: center">
+  <img src="/images/dwi/godzilla.gif" width="80%" style="margin: auto"/>
+</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exhibit D</h2>
+      <h3>Internet is for Cats</h3>
+    </hgroup>
+    <article ><p style="text-align: center">
+  <img src="/images/dwi/cat-skateboard.gif" width="80%" style="margin: auto"/>
+</p></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Graphics Interchange Format</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>256 colors per frame</li>
+<li>Animation</li>
+<li>Pronunciation: "Choosy developers choose GIF"</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>JPEG</h2>
+      <h3>Just an FYI</h3>
+    </hgroup>
+    <article ><ul>
+<li>No animations</li>
+<li>Way more complex</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>What We're Doing Today</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Drawing</li>
+<li>Animating</li>
+<li>Exporting</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Drawing</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><div style="width: 100%">
+  <div class="pillar black gray-bg">
+    <h1>Canvas</h1>
+    <ul>
+      <li>Pixels at (X,Y) or (X,Y,Z)</li>
+      <li>Poor Text Rendering</li>
+      <li>No animation support</li>
+      <li>GIF exporting libraries support it</li>
+    </ul>
+  </div>
+  <div class="pillar black green-bg">
+    <h1>SVG</h1>
+    <ul>
+      <li>Scaleable</li>
+      <li>Good text support</li>
+      <li>Animations</li>
+      <li>DOM elements</li>
+      <li>Slows down with DOM complexity</li>
+      <li>Did not find GIF exporting library support</li>
+    </ul>
+  </div>
+</div></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>And the winner is...</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><span class="blue" style="font-size: 60pt">Canvas!<span></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Canvas Demo</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><a class="jsbin-embed" href="http://jsbin.com/iwovaj/74/embed?js,output">Ember Starter Kit</a><script src="http://static.jsbin.com/js/embed.js"></script></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>How does canvas animation work?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Render the whole canvas</li>
+<li>Wait</li>
+<li>GOTO 1</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>So... how are we building an app?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Manage (X,Y) of the animation path</li>
+<li>Animate sunglasses</li>
+<li>Add base image</li>
+<li>Render text</li>
+<li>Let the web browser handle frame swapping</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Manage (X,Y) of the animation path</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Track mouse location in DOM element</li>
+<li>Keep track of locations over time</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Manage (X,Y) (code I)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  steps: [],
+  isMouseDown: false,
+  mouseDown: function(){
+    this.set('isMouseDown',true);
   },
-  "run_list": ["recipe[sdruby-prism]"]
-}
+  mouseUp: function(){
+    this.set('isMouseDown',false);
+  },
+  mouseMove: function(event,view){
+    if(this.get('isMouseDown')){
+      var point = this.relMouseCoords(event,this.get('canvas'));
+      // point = {x: XX, y: YY}
+      this.get('steps').pushObject(point);
+      this.drawLine();
+    }
+  }
 </pre></article>
  
 </slide>
@@ -1104,29 +299,399 @@ bundle exec knife ec2 server create \
 <slide  >
   
     <hgroup>
-      <h2>Cloudtacular Deployment</h2>
-      <h3>Make server accessible</h3>
+      <h2>Manage (X,Y) (code II)</h2>
+      <h3></h3>
     </hgroup>
-    <article ><pre class="prettyprint" data-lang="bash">
-include_recipe "dnsimple"
+    <article ><pre class="prettyprint" data-lang="javascript">
+  // http://jsbin.com/ApuJOSA/1/edit
+  relMouseCoords: function(e) {
+    var el=e.target, c=el;
+    var scaleX = c.width/c.offsetWidth || 1;
+    var scaleY = c.height/c.offsetHeight || 1;
 
-dnsimple_record "sdruby-prism-dns" do
-    name "www"
-    content node[:cloud][:public_ipv4]
-    type "A"
-    domain   "sdruby-prism.org"
-    username node[:dnsimple][:username]
-    password node[:dnsimple][:password]
+    if (!isNaN(e.offsetX))
+      return { x:e.offsetX*scaleX, y:e.offsetY*scaleY };
 
-    action :create
-  end
+    var x=e.pageX, y=e.pageY;
+    do {
+      x -= el.offsetLeft;
+      y -= el.offsetTop;
+      el = el.offsetParent;
+    } while (el);
+    return { x: x*scaleX, y: y*scaleY };
+  }
 </pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Manage (X,Y) Draw Line</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  drawLine: function(){
+    var lineArr = this.get('steps');
+
+    var cvas = this.get('canvas');
+    var ctx = cvas.getContext("2d");
+    ctx.beginPath();
+    for(var i=0; i&lt;lineArr.length; i++){
+      var point = lineArr[i];
+      ctx.lineTo(point.x,point.y);
+    }
+    ctx.stroke();
+  }
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Manage (X,Y) Demo</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>http://emberjs.jsbin.com/gohix/1/edit</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Animate Sunglasses</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Load image in to DOM</li>
+<li>Copy in to canvas</li>
+<li>Track the mouse</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Load image in to the DOM</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="html">
+  &lt;img id=&quot;sunglasses&quot;
+          src=&quot;https://s3-us-west-1.amazonaws.com/xrl/talks/sdjs-deal-with-it/sunglasses.png&quot;
+          style=&quot;display: none&quot;/&gt;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Copy in to canvas</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+var img = $("img#sunglasses");
+var canvas = $("canvas#deal-with-it");
+var ctx = canvas.getContext("2d");
+
+ctx.drawImage(img,
+              point.x, point.y,
+              img.width*scale,
+              img.height*scale);
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Track the mouse</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+mouseMove: function(event,view){
+  if(this.get('isMouseDown')){
+    var point = this.relMouseCoords(event,this.get('canvas'));
+    this.get('steps').pushObject(point);
+    this.drawGlasses(point);
+  }
+},
+drawGlasses: function(point){
+  var img = this.get('sunglasses'), scale = this.get('sunglassesScale');
+  var cvas = this.get('canvas');
+  var ctx = cvas.getContext("2d");
+
+  ctx.drawImage(this.get('sunglasses'),point.x,point.y,img.width*scale,img.height*scale);
+}
+</pre>
+
+<ul>
+<li>http://emberjs.jsbin.com/cayix/1/edit</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Uh, not what we wanted</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Additive</li>
+<li>Clear the canvas with clearRect!</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Track the mouse (now with clearing)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+mouseMove: function(event,view){
+  if(this.get('isMouseDown')){
+    var point = this.relMouseCoords(event,this.get('canvas'));
+    this.get('steps').pushObject(point);
+    this.drawGlasses(point);
+  }
+},
+drawGlasses: function(point){
+  var img = this.get('sunglasses'), scale = this.get('sunglassesScale');
+  var cvas = this.get('canvas');
+  var ctx = cvas.getContext("2d");
+
+  context.clearRect(0, 0, cvas.width, cvas.height);
+  ctx.drawImage(this.get('sunglasses'),point.x,point.y,img.width*scale,img.height*scale);
+}
+</pre>
+
+<p>http://emberjs.jsbin.com/cayix/4/edit</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Draw the background</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Replaces ctx.clearRect()</li>
+<li>Load up an image from the DOM... of me!</li>
+<li>Don't mind the EmberJS'ism</li>
+</ul>
+<pre class="prettyprint" data-lang="html">
+  &lt;img id=&quot;sunglasses&quot;
+          src=&quot;https://s3-us-west-1.amazonaws.com/xrl/talks/sdjs-deal-with-it/xavier-deuces.png&quot;
+          style=&quot;display: none&quot;/&gt;
+</pre>
+
+<pre class="prettyprint" data-lang="javascript">
+  drawBackground: function(){
+    var cvas = this.get('canvas');
+    var ctx = cvas.getContext("2d");
+
+    ctx.drawImage(this.get('background'),0,0);
+  }.on('didInsertElement')
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Layer the canvas</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  if(this.get('isMouseDown')){
+    this.drawBackground();
+
+    var point = this.relMouseCoords(event,this.get('canvas'));
+    this.get('steps').pushObject(point);
+    this.drawLine();
+    this.drawGlasses(point);
+  }
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Playback</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  frameTimers: [],
+  animationSpeed: 30,
+  startAnimation: function(){
+    this.drawBackground();
+    var steps = this.get('steps'), frame=0;
+    var self = this;
+
+    for(var i=0; i &lt; steps.length; i=i+1){
+      var timer = window.setTimeout(function(){
+        var point = steps[frame];
+        self.drawBackground();
+        self.drawLine();
+        self.drawGlasses(point);
+        frame = frame + 1;
+      }, self.get('animationSpeed')*i);
+
+      self.get('frameTimers').pushObject(timer);
+    }
+  }
+</pre>
+
+<p>http://emberjs.jsbin.com/guhit/3/edit</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Canceling Playback</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  cancelAnimation: function(){
+    this.get('frameTimers').forEach(window.clearTimeout);
+    this.set('frameTimers',[]);
+    this.drawBackground();
+  }
+</pre>
+
+<p>http://emberjs.jsbin.com/guhit/3/edit</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Drawing Text</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  displayText: "Deal With It",
+  font: "40pt Arial",
+  setFont: function(font){
+    var cvas = this.get('canvas');
+    var ctx  = cvas.getContext('2d');
+    ctx.font = font;
+  },
+  drawText: function(){
+    var text = self.get('displayText');
+    self.setFont(self.get('font'));
+    self.drawText(text,400,50);
+
+    var cvas = this.get('canvas');
+    var ctx  = cvas.getContext('2d');
+
+    ctx.strokeText.apply(ctx,arguments);
+  }
+</pre>
+
+<p>http://emberjs.jsbin.com/gujon/73/edit</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exporting GIF</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>https://github.com/jnordberg/gif.js</li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+  var gif = new GIF({
+    workers: 2,
+    quality: 10
+  });
+
+  // or a canvas element
+  gif.addFrame(canvasElement, {delay: 200});
+
+  // or copy the pixels from a canvas context
+  gif.addFrame(ctx, {copy: true});
+
+  gif.on('finished', function(blob) {
+    window.open(URL.createObjectURL(blob));
+  });
+
+  gif.render();
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Replaying animation in to gif.js</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+  generateGIF: function(){
+    var gif = new GIF({quality: 10}),
+        steps = this.get('steps'),
+        canvas = this.get('canvas');
+    for(var i=0; i &lt; steps.length; i=i+1){
+      var point = steps[i];
+      this.drawBackground();
+      this.drawLine();
+      this.drawGlasses(point);
+      gif.addFrame(canvas, {delay: this.get('animationSpeed'),
+                            copy: true});
+    }
+
+    var self=this;
+    gif.on('finished',function(blob){
+      window.open(URL.createObjectURL(blob));
+    });
+    gif.render();
+  }
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Canvas serializations fails...</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Need to work around security problems</li>
+<li>Host all assets on same domain and from web</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Final version</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Bells and whistles from EmberJS</li>
+<li>get/set are the weirdest</li>
+<li>otherwise ignore</li>
+</ul>
+<p>http://emberjs.jsbin.com/gujon/73/edit</p></article>
  
 </slide>
 
 
 <slide class="thank-you-slide segue nobackground">
-  <aside class="gdbar right"><img src="images/ruby_logo_128.png"></aside>
+  <aside class="gdbar right"><img src="images/html5_canvas_logo_by_netgoblin154-d54alet.png"></aside>
   <article class="flexbox vleft auto-fadein">
     <h2>&lt;Thank You!&gt;</h2>
     <p>Xavier Lange: xrlange@gmail.com</p>
